@@ -90,8 +90,7 @@ summary {
   cursor: pointer;
 }
 
-#nd-sidebar a[data-filter-hidden],
-#nd-sidebar p[data-filter-hidden] {
+#nd-sidebar [data-filter-hidden] {
   display: none;
 }
 
