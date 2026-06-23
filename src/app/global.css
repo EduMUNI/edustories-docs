@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+@theme {
+  /* Inter for both body and display — matches the Edustories app. */
+  --font-sans:
+    var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --font-display:
+    var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --font-mono:
+    var(--font-jetbrains-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Edustories primary — a tonal scale derived from the brand blue
+     #305cde (=600), with 700/800 anchored to the app's hover/active
+     shades. Exposes `bg-primary`, `text-primary-600`, `border-primary-200`,
+     etc. as Tailwind utilities. */
+  --color-primary-50: #f3f5fd;
+  --color-primary-100: #e4eafb;
+  --color-primary-200: #c5d1f6;
+  --color-primary-300: #9cb1ef;
+  --color-primary-400: #6a8ae7;
+  --color-primary-500: #456ce1;
+  --color-primary-600: #305cde;
+  --color-primary-700: #204bca;
+  --color-primary-800: #173aa0;
+  --color-primary-900: #142e7a;
+  --color-primary-950: #112151;
+
+  /* `primary` (no number) + the app's hover/active aliases. */
+  --color-primary: #305cde;
+  --color-primary-hover: #204bca;
+  --color-primary-active: #173aa0;
+
+  /* Supporting steel/neutral brand tokens. */
+  --color-steel-900: #12192e;
+  --color-steel-700: #313c58;
+  --color-steel-300: #b2bedb;
+  --color-steel-200: #d5def2;
+  --color-steel-100: #ecf1fc;
+}
+
+:root:not(.dark) {
+  --color-fd-background: #ffffff;
+  --color-fd-card: #ffffff;
+  --color-fd-popover: #ffffff;
+  --color-fd-muted: #f9fafd;
+  --color-fd-secondary: #f9fafd;
+  /* Hover/active surfaces (sidebar links, menu items) get a faint
+     brand tint instead of plain grey. */
+  --color-fd-accent: #eef2fd;
+  --color-fd-accent-foreground: #204bca;
+}
+
+:root {
+  --color-fd-primary: #305cde;
+  --color-fd-primary-foreground: #ffffff;
+  --color-fd-ring: #305cde;
+}
+
+.dark {
+  /* Lighter tint of the brand so it stays legible on dark surfaces. */
+  --color-fd-primary: #9cb1ef;
+  --color-fd-primary-foreground: #12192e;
+  --color-fd-ring: #9cb1ef;
+}
+
+::selection {
+  background: #305cde;
+  color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+button:not(:disabled),
+[role='button']:not([aria-disabled='true']),
+[role='menuitem']:not([aria-disabled='true']),
+[role='option']:not([aria-disabled='true']),
+[role='tab']:not([aria-disabled='true']),
+summary {
+  cursor: pointer;
+}
+
+#nd-sidebar a[data-filter-hidden],
+#nd-sidebar p[data-filter-hidden] {
+  display: none;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}

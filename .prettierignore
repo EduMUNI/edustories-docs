@@ -1,0 +1,12 @@
+node_modules
+.next
+.source
+out
+build
+dist
+coverage
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+public
+.git
