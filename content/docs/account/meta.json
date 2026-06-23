@@ -1,0 +1,5 @@
+{
+  "title": "Account & profile",
+  "icon": "CircleUser",
+  "pages": ["index", "settings", "verified-authors", "privacy-and-data"]
+}

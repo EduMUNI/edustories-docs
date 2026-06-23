@@ -1,0 +1,19 @@
+{
+  "title": "Case reports",
+  "icon": "FileText",
+  "pages": [
+    "index",
+    "anatomy",
+    "browsing",
+    "reading",
+    "creating",
+    "ai-solutions",
+    "education-plans",
+    "exporting",
+    "similar-cases",
+    "ratings-and-comments",
+    "saving-and-tags",
+    "intervention-tracking",
+    "statuses-and-publishing"
+  ]
+}

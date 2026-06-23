@@ -27,3 +27,5 @@ next-env.d.ts
 
 # claude code (per-user permissions)
 .claude/settings.local.json
+# research scratch (feature investigation notes, not published)
+/.research/

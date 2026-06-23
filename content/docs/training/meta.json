@@ -1,0 +1,11 @@
+{
+  "title": "Training",
+  "icon": "Dumbbell",
+  "pages": [
+    "index",
+    "skills",
+    "starting-a-session",
+    "during-a-session",
+    "progress-and-leaderboard"
+  ]
+}
