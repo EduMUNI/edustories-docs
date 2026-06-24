@@ -1,6 +1,7 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { provider } from '@/lib/i18n-ui';
 import { i18n } from '@/lib/i18n';
+import SearchDialog from '@/components/search-dialog';
 
 export default async function LangLayout({
   params,
@@ -14,10 +15,10 @@ export default async function LangLayout({
     <RootProvider
       i18n={provider(lang)}
       search={{
-        options: {
-          type: 'static',
-          api: '/api/search',
-        },
+        // Custom dialog because the default one can't pass `initOrama`, which
+        // we need to map our i18n locale codes to Orama language names.
+        // See src/components/search-dialog.tsx.
+        SearchDialog,
       }}
     >
       {children}
