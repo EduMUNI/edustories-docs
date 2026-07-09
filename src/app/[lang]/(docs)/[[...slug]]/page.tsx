@@ -5,9 +5,11 @@ import {
   DocsPage,
   DocsTitle,
   EditOnGitHub,
+} from 'fumadocs-ui/layouts/notebook/page';
+import {
   MarkdownCopyButton,
   ViewOptionsPopover,
-} from 'fumadocs-ui/layouts/notebook/page';
+} from '@/components/page-actions';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
