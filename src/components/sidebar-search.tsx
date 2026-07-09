@@ -2,6 +2,15 @@
 
 import { Search, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { useI18n } from 'fumadocs-ui/contexts/i18n';
+
+// This box is a custom control, so its strings aren't part of Fumadocs's
+// `Translations` set — they're localized here against the active locale
+// (from the i18n context), falling back to English.
+const LABELS: Record<string, { placeholder: string; clear: string }> = {
+  en: { placeholder: 'Filter sidebar links...', clear: 'Clear filter' },
+  cs: { placeholder: 'Filtrovat odkazy v nabídce...', clear: 'Zrušit filtr' },
+};
 
 // Fumadocs renders each sidebar folder as a Radix Collapsible, and
 // CollapsibleContent UNMOUNTS its children while the folder is closed. So a
@@ -28,6 +37,8 @@ function isFolderRoot(el: Element): boolean {
 }
 
 export function SidebarSearch() {
+  const { locale } = useI18n();
+  const labels = (locale && LABELS[locale]) || LABELS.en;
   const [q, setQ] = useState('');
   // Folders we expanded ourselves, so we can restore them on clear.
   const autoOpened = useRef<Set<Element>>(new Set());
@@ -161,14 +172,14 @@ export function SidebarSearch() {
         type="text"
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Filter sidebar links..."
+        placeholder={labels.placeholder}
         className="bg-fd-background placeholder:text-fd-muted-foreground focus:ring-fd-ring/30 w-full rounded-md border py-1.5 pr-7 pl-8 text-sm focus:ring-2 focus:outline-none"
       />
       {q && (
         <button
           type="button"
           onClick={() => setQ('')}
-          aria-label="Clear filter"
+          aria-label={labels.clear}
           className="text-fd-muted-foreground hover:text-fd-foreground absolute top-1/2 right-2 -translate-y-1/2"
         >
           <X className="size-3.5" />

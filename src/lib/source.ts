@@ -10,6 +10,17 @@ export const source = loader({
   i18n,
   source: docs.toFumadocsSource(),
   plugins: [lucideIconsPlugin()],
+  // Per-locale URL slugs. The `slugs` fn runs once per language storage, so a
+  // localized file can carry its own `slug:` frontmatter to translate the URL
+  // (e.g. `getting-started.cs.mdx` → `/cs/zaciname`) while the shared filename
+  // still links it to the English page as a translation. Returning `undefined`
+  // falls back to the default filename-derived slug. `slugsFromData` is not
+  // exported from fumadocs-core in 16.8, so this is spelled out inline.
+  slugs: (file) => {
+    const slug = (file.data as { slug?: unknown }).slug;
+    if (typeof slug !== 'string') return undefined;
+    return slug.split('/').filter((segment) => segment.length > 0);
+  },
 });
 
 export function getPageImage(page: (typeof source)['$inferPage']) {

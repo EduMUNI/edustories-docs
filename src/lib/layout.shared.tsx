@@ -12,7 +12,15 @@ function ExternalLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Custom nav-link labels aren't part of Fumadocs's translatable strings, so
+// they're localized here against the active locale (falling back to English).
+const NAV_LABELS: Record<string, { visitWebsite: string }> = {
+  en: { visitWebsite: 'Visit website' },
+  cs: { visitWebsite: 'Přejít na web' },
+};
+
 export function baseOptions(locale: string): BaseLayoutProps {
+  const labels = NAV_LABELS[locale] ?? NAV_LABELS.en;
   return {
     // `i18n` makes the language switcher appear in the nav. With a single
     // language it lists only English; adding a language to `i18n.languages`
@@ -42,7 +50,7 @@ export function baseOptions(locale: string): BaseLayoutProps {
     links: [
       {
         type: 'main',
-        text: <ExternalLabel>Visit website</ExternalLabel>,
+        text: <ExternalLabel>{labels.visitWebsite}</ExternalLabel>,
         url: 'https://edustories.cz',
         external: true,
       },

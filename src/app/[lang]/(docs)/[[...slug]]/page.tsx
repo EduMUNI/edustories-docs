@@ -126,7 +126,11 @@ export default async function Page(props: {
           githubUrl={githubUrl}
           className="text-fd-muted-foreground hover:text-fd-foreground data-[state=open]:text-fd-foreground -my-1 h-auto min-h-9 gap-1.5 border-0 bg-transparent px-0.5 py-1 text-xs font-normal hover:bg-transparent hover:underline data-[state=open]:bg-transparent"
         />
-        <VerifiedBadge date={page.data.verifiedAt} className="ml-auto" />
+        <VerifiedBadge
+          date={page.data.verifiedAt}
+          lang={params.lang}
+          className="ml-auto"
+        />
       </div>
       <DocsBody>
         <MDX

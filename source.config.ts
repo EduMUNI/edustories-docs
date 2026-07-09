@@ -8,6 +8,13 @@ export const docs = defineDocs({
   dir: 'content/docs',
   docs: {
     schema: pageSchema.extend({
+      // Explicit URL slug for this page, overriding the filename-derived one.
+      // Set it on *localized* files to translate the URL while keeping the
+      // filename shared across languages (the filename is the invisible
+      // translation key — see src/lib/source.ts and src/lib/translations.ts).
+      // A path (`parent/child`) is split on `/`. Omit to inherit the
+      // filename-based slug. Must be unique within a language.
+      slug: z.string().optional(),
       // ISO date (YYYY-MM-DD) – the date a human last verified this page
       // against the actual product. Surfaces as a "Verified <date>" badge
       // next to the Copy Markdown / Open buttons. Accepts both a string

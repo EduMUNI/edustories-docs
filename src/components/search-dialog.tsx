@@ -25,6 +25,9 @@ import type { SharedProps } from 'fumadocs-ui/contexts/search';
 // that maps locale → Orama language so the query tokenizer matches the index.
 const ORAMA_LANGUAGE: Record<string, string> = {
   en: 'english',
+  // Orama has no Czech stemmer; index + query with English. Keep in sync with
+  // the localeMap in src/app/api/search/route.ts.
+  cs: 'english',
 };
 
 function initOrama(locale?: string) {
