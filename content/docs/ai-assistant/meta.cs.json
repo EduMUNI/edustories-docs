@@ -1,0 +1,5 @@
+{
+  "title": "AI asistent",
+  "icon": "Bot",
+  "pages": ["index", "conversations-and-tools"]
+}

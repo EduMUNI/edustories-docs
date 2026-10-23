@@ -1,0 +1,5 @@
+{
+  "title": "EduPlay",
+  "icon": "Gamepad2",
+  "pages": ["index", "scoring-endings-replay"]
+}
