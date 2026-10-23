@@ -1,0 +1,13 @@
+{
+  "title": "Diagnostic simulator",
+  "icon": "Stethoscope",
+  "pages": [
+    "index",
+    "starting-a-simulation",
+    "during-a-simulation",
+    "results-and-history",
+    "credits",
+    "groups",
+    "joining-a-group"
+  ]
+}
